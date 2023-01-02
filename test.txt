@@ -1,1 +1,34 @@
 hello world
+
+1. Define achievement
+2. Gather the data
+3. Data Anaylysis
+4. Data Wrangling
+5. Build a Model
+6. Test Model
+7. Prediction  / Achievement
+8. Evaluation
+
+
+differnt types of Machine learning
+
+!. Supervised
+ --- label data	  -- predictor and target
+ -- Regression  
+	-- continous(share market)  
+	--  Linear Regression (Single n Multi LR)
+
+-- Classification ( Binary  (Yes / No ) or Mulitnomial (voting A , B, C) )
+	-- Logistic Reg
+-- DT
+-- RF
+-- NB 
+-- SVM
+	
+2. UnSupervised
+--
+3. Reinforcement 
+
+
+
+
