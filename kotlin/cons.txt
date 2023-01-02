@@ -1,0 +1,154 @@
+class Animal {
+    var animalAge = 44
+    fun animalMethd(){
+        println("animal Method")
+    }      
+   inner class Tiger {
+        var age = 22
+        fun tigerRoaring(){
+            println("tiger is roaring " + animalAge )
+        }
+    } 
+}
+
+
+fun main(){
+
+    var tig = Animal().Tiger()
+    tig.tigerRoaring()
+    
+
+}
+
+---------------------------------------------------
+
+
+Primary Constructor  (one prim cons)
+Secondary Constructor (multiple cons)
+
+
+class Tiger(var name : String) {
+        var age = 22
+        fun tigerRoaring(){
+            println("tiger name is $name " )
+        }
+}
+
+
+
+fun main(){
+
+    var tiger = Tiger("Ansari")
+    tiger.tigerRoaring()
+}
+
+
+---------------------------------------------------
+
+
+
+class Tiger {
+    constructor(){
+        println("this is my secondary constructor")
+    }
+
+    constructor(name : String){
+        println("constructor name is $name")
+    }
+        var age = 22
+        fun tigerRoaring(){
+            println("tiger name is " )
+        }
+}
+fun main(){
+
+    var tiger = Tiger()
+    var tiger1 = Tiger("Ansari")
+
+
+}
+
+---------------------------------------------------
+
+
+class Tiger(city : String) {
+
+    init {
+        println("my city is $city")
+    }
+    constructor() : this("Bangalore"){
+        println("this is my secondary constructor")
+    }
+
+//    constructor(name : String){
+//        println("constructor name is $name")
+//    }
+        var age = 22
+        fun tigerRoaring(){
+            println("tiger name is " )
+        }
+}
+fun main(){
+
+    var tiger = Tiger()
+
+
+
+}
+
+---------------------------------------------------
+
+
+class Tiger(city : String) {
+
+    init {
+        println("my city is $city")
+    }
+    constructor() : this("Bangalore"){
+        println("this is my secondary constructor")
+    }
+
+    constructor(name : String, id : Int) : this(name){
+        println("constructor name is $name")
+    }
+        var age = 22
+        fun tigerRoaring(){
+            println("tiger name is " )
+        }
+}
+fun main(){
+
+    var tiger = Tiger("Ansari" , 101)
+
+
+
+}
+
+-------------------------------------------
+
+class Tiger(city : String) {
+
+    init {
+        println("my city is $city")
+    }
+    constructor() : this("Bangalore"){
+        println("this is my secondary constructor")
+    }
+
+    constructor(name : String, id : Int) : this(){
+        println("constructor name is $name")
+    }
+        var age = 22
+        fun tigerRoaring(){
+            println("tiger name is " )
+        }
+}
+fun main(){
+
+    var tiger = Tiger("Ansari" , 101)
+
+
+
+}
+
+

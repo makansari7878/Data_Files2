@@ -1,0 +1,23 @@
+
+Extension Properties
+-----------------------
+
+
+Kotlin allows to define extension properties in very similar way like we defined extension function. Extension properties are also defined outside of the class. Since extensions do not actually insert members into classes, there is no efficient way for an extension property to have a backing field. This is why initializers are not allowed for extension properties.
+
+We can add getter and setter along with the property which are nothing but the extension functions.
+
+class Temperature(var celsius: Float)
+
+fun main(args: Array<String>) {
+   val t = Temperature(40f)
+   println(t.fahrenheit)
+
+   t.fahrenheit = 85f
+   println(t.celsius)
+}
+var Temperature.fahrenheit: Float
+    get() = (celsius * 9 / 5) + 32
+    set(value) {
+        celsius = (value - 32) * 5 / 9
+    }

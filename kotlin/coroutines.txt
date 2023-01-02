@@ -1,0 +1,200 @@
+
+
+Parllel processing Vs Concurrent Processing
+
+
+
+fun main(){
+
+    println("Main Program is started on " + Thread.currentThread().name)
+
+    thread {
+        println("worker1 thread started " + Thread.currentThread().name)
+        Thread.sleep(3000)
+
+        println("Worker1 thread ended " + Thread.currentThread().name)
+    }
+
+    thread {
+        println("worker2 thread started " + Thread.currentThread().name)
+        Thread.sleep(3000)
+
+        println("Worker2 thread ended " + Thread.currentThread().name)
+    }
+
+    println("Main Program is end on " + Thread.currentThread().name)
+
+}
+
+----------------------------
+
+launch -- 
+aysnc -- deferred obj   await()
+runBlocking -- 
+
+fun main(){
+
+    println("Main Program is started on " + Thread.currentThread().name)
+
+
+    GlobalScope.launch {
+        println("worker1 thread started " + Thread.currentThread().name)
+        Thread.sleep(2000)
+        println("worker1 thread ends " + Thread.currentThread().name)
+    }
+
+    Thread.sleep(3000)
+
+    println("Main Program is end on " + Thread.currentThread().name)
+
+}
+
+----------------------------
+
+
+
+fun main() = runBlocking{
+
+    println("Main Program is started on " + Thread.currentThread().name)
+
+
+    GlobalScope.launch {
+        println("worker1 thread started " + Thread.currentThread().name)
+        delay(2000)
+        println("worker1 thread ends " + Thread.currentThread().name)
+    }
+   
+    delay(3000)    
+
+    println("Main Program is end on " + Thread.currentThread().name)
+
+}
+----------------------------
+
+fun main() = runBlocking{
+
+    println("Main Program is started on " + Thread.currentThread().name)
+
+
+    GlobalScope.launch {
+        println("worker1 thread started " + Thread.currentThread().name)
+        mySusFun(2000)
+        println("worker1 thread ends " + Thread.currentThread().name)
+    }
+
+    mySusFun(3000)
+
+    println("Main Program is end on " + Thread.currentThread().name)
+
+}
+
+suspend fun mySusFun(time : Long){
+        delay(time)
+}
+
+----------------------------
+
+
+fun main() = runBlocking{
+
+    println("Main Program is started on " + Thread.currentThread().name)
+
+
+     var job : Job = GlobalScope.launch {
+        println("worker1 thread started " + Thread.currentThread().name)
+        mySusFun(2000)
+        println("worker1 thread ends " + Thread.currentThread().name)
+    }
+    job.join()
+
+
+    println("Main Program is end on " + Thread.currentThread().name)
+
+}
+
+// resume, suspend and cancel
+suspend fun mySusFun(time : Long){
+        delay(time)
+}
+
+
+-------------------------------------
+fun main() = runBlocking{
+
+    println("Main Program is started on " + Thread.currentThread().name)
+
+
+     var obj : Deferred<String> = GlobalScope.async {
+        println("worker1 thread started " + Thread.currentThread().name)
+        mySusFun(2000)
+        println("worker1 thread ends " + Thread.currentThread().name)
+
+         "data received from server"
+    }
+    var data : String = obj.await()
+    println(" $data")
+
+
+    println("Main Program is end on " + Thread.currentThread().name)
+
+}
+
+// resume, suspend and cancel
+suspend fun mySusFun(time : Long){
+        delay(time)
+}
+-------------------------------------	
+
+fun main() = runBlocking{
+
+    var job :Job = GlobalScope.launch {
+        println("coroutine runningo on " + Thread.currentThread().name)
+
+        for (i in 1..20){
+            println(i)
+            delay(1000)
+        }
+    }
+
+    delay(4000)
+    job.cancel()
+    job.join()
+
+    //job.cancelAndJoin()
+
+    println("main thread ends " + Thread.currentThread().name)
+
+}
+
+-------------------------------------	
+
+fun main() = runBlocking{
+
+    println("runblocking ${this}")
+
+    GlobalScope.launch {
+        println("launch is ${this}")
+    }
+
+   GlobalScope.async {
+       println("async is ${this}")
+   }
+ println("end of the program")
+}
+
+-------------------------------------	
+
+fun main() = runBlocking{
+
+    launch {
+        println("this is lauched -- ${Thread.currentThread().name}")
+    }
+
+    launch(Dispatchers.Default) {
+        println(" dispatcher --  is lauched -- ${Thread.currentThread().name}")
+    }
+
+
+ println("end of the program")
+}
+----------------------------

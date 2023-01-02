@@ -1,0 +1,147 @@
+1. Google
+2. interopratablity 
+3. Android, Server Side, javascript, DS, Gradle scripting ( groovy /kotlin) ,  KMM 
+
+a) More concise  -- faster compliation 
+b) Null Pointer exception 
+c) Extension Function
+d) Coroutines
+
+
+
+NATIVE (Android, IOS, Windows) AND HYBRIDB (React Native, Flutter, Xamrin)
+
+
+
+    
+    var a : Int = 11
+    var b : Double = a.toDouble()
+    
+    val age : Int = 22
+    
+    var name : String = "abc"
+    name = "xyz"
+    println("my name is " + name)
+    // string interpolation
+    println("my name is ${name.length}")
+
+    println("my name is $name")
+    println("hello world")
+
+
+-------------------------------------------
+
+
+
+fun main(){
+
+    var age = 43
+
+    when(age){
+        1,2,3 -> {
+            println("very young")
+            println("you are a baby")
+        }
+        22,23,24 -> println("young")
+        in 40..50-> println("not young")
+
+        else -> println("no age define")
+    }
+
+
+}
+
+------------------------------------------------------
+
+
+
+fun main(){
+
+    var myArr = arrayOf(4,3,5,33)
+
+//    for(i in myArr){
+//        println(i)
+//    }
+//
+//    for (i in 0..myArr.size - 1){
+//
+//        println(" index is $i and value is ${myArr[i]}")
+//    }
+
+    for(i in myArr.indices){
+        println(" index is $i and value is ${myArr[i]}")
+    }
+
+//    for(i in 1..10){
+//        println(i)
+//    }
+
+  /*  for(i in 10 downTo 1 step 2){
+        println(i)
+    }*/
+
+
+    }
+
+------------------------------------------------------
+
+package com.example.zeekotlinfirst
+//fun sum(a : Int, b : Int) : Int {
+//    return a + b
+//}
+var mySum : (Int, Int) -> Int = { a, b -> a+b }
+
+fun someFunction(x : Int, y : Int, adding : (Int, Int) -> Int ) : Int{
+
+    var res = adding(x,y)
+    println("result is $res")
+    return res
+
+}
+/*fun myFun(name : String = "abc", age : Int = 100) : Unit{
+    println("my name is $name and my age is $age")
+}*/
+
+fun main(){
+   var myRes = someFunction(4,5, mySum)
+    println(myRes)
+
+    /*myFun("ansari", 33)
+    myFun()
+    myFun("Ravi")
+    myFun(age = 44)*/
+
+
+}
+
+------------------------------------------------------
+var mySum : (Int, Int) -> Int = { a, b -> a+b }
+
+
+fun myMul( a : Int, b : Int) : Int{
+    return a * b
+}
+
+
+
+
+fun myFun() : ((Int, Int) -> Int ){
+    return ::myMul
+}
+
+
+fun main(){
+   var myRes = myFun()
+   var res =  myRes(4,5)
+    println(res)
+    
+    println("result is ${myRes(3,4)}")
+
+
+
+
+
+}
+---------------------------------------------
+
+

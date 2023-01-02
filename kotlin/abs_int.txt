@@ -1,0 +1,142 @@
+
+open class Animal(){
+
+    var animaAge = 33
+   open fun animalMehtod(){
+        println("animal method")
+    }
+}
+
+class Tiger() : Animal(){
+
+    override fun animalMehtod() {
+        super.animalMehtod()
+        println("overriding animal method")
+    }
+
+    var tigerAge = 33
+    fun tigerMehtod(){
+        println("tiger method")
+    }
+}
+
+fun main(){
+
+    var tiger = Tiger()
+    tiger.animalMehtod()
+
+
+}
+
+__________________________________________________
+
+Access Modifiers
+
+Public
+Private
+Protected
+internal
+
+__________________________________________________
+
+Abstract Class
+
+1. abstract
+2. cannot create obj of abstract
+3. abstract and non-abstract methos
+
+
+
+abstract class ZeeCompany(){
+
+    abstract fun securityProcedure()
+    abstract  fun wearMask()
+
+    open fun haveLunch(){
+        println("you guys can have urlunch in office -- its optional")
+    }
+}
+
+class NonCSE() : ZeeCompany(){
+    override fun securityProcedure() {
+        println("finger print")
+    }
+
+    override fun wearMask() {
+       println("wear n92 mask")
+    }
+
+    override fun haveLunch() {
+        super.haveLunch()
+        println("veg lunch")
+    }
+
+
+}
+
+class CSE() : ZeeCompany(){
+    override fun securityProcedure() {
+        println("id card")
+    }
+
+    override fun wearMask() {
+        println("cloth mask")
+    }
+
+}
+
+
+fun main(){
+
+var nonCse = NonCSE()
+
+}
+__________________________________________________
+
+
+interface  MyInterface{
+    
+    fun myInterfaceMethod()
+    
+    fun nonAbsMethod(){
+        println("my non abs method")
+    }
+}
+
+interface  MyInterface2{
+
+    fun myInterfaceMethod2()
+
+    fun nonAbsMethod2(){
+        println("my non abs method2")
+    }
+}
+
+class MyClass() : MyInterface, MyInterface2{
+    override fun myInterfaceMethod() {
+        TODO("Not yet implemented")
+    }
+
+    override fun myInterfaceMethod2() {
+        TODO("Not yet implemented")
+    }
+
+}
+
+fun main(){
+
+
+
+}
+
+__________________________________________________
+
+quality check
+
+Exception Handling
+1. Checked and Unchecked
+
+Unchecked
+
+
+

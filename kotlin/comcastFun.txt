@@ -1,0 +1,128 @@
+
+class Animal(){
+    var age = 44
+
+    fun makesSound(){
+        println("makes sound")
+    }
+}
+
+fun main(){
+
+    var animal = Animal()
+    println("${animal.age}")
+    animal.makesSound()
+
+
+}
+
+---------------------
+
+
+class Animal(){
+    var age = 44
+
+    fun makesSound(){
+        println("makes sound")
+    }
+    
+   infix fun eating(name : String){
+        println("animal name is $name")
+    }
+}
+
+fun main(){
+
+    var animal = Animal()
+    println("${animal.age}")
+    animal.makesSound()
+    animal eating "ABC"
+
+
+}
+----------------------------
+
+
+primary 
+secondary
+
+
+
+class Animal(name : String, city : String){
+
+    var myname = ""
+    init {
+        myname = name
+        println(" primar construcor intialization " + myname)
+    }
+    var age = 44
+
+    fun makesSound(){
+        println("animal name is ")
+    }
+}
+fun main(){
+
+var animal = Animal("ABC")
+
+
+}
+============================================
+
+
+
+
+class Animal(city : String){
+
+    constructor(name : String, id : Int) : this("blore"){
+        println("my name is $name")
+    }
+//    constructor(age : Int){
+//        println("my age is $age")
+//    }
+
+    var age = 44
+
+    fun makesSound(){
+        println("animal name is ")
+    }
+}
+fun main(){
+
+var animal = Animal("ABC")
+
+
+}
+
+======================================================
+
+
+
+
+class Animal(city : String){
+
+    init {
+        println("my city is $city")
+    }
+
+    constructor(name : String, id : Int) : this("blore"){
+        println("my name is $name and id is $id")
+    }
+    constructor(age : Int) : this("abc" , 123){
+        println("my age is $age ")
+    }
+
+    var age = 44
+
+    fun makesSound(){
+        println("animal name is ")
+    }
+}
+fun main(){
+
+var animal = Animal(44)
+
+
+}
+
+===========================================

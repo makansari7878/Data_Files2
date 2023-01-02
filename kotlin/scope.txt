@@ -1,0 +1,134 @@
+SCOPE FUNCTIONS
+
+
+class Animal(){    
+    var age = 33
+    var name = "abc"
+    
+    fun playing(){
+        println("animal playing")
+    }
+    fun eating(){
+        println("animal eating")
+    }
+    
+    
+}
+fun main(){
+    
+    var animal = Animal()
+    
+    println("${animal.age}  ")
+    animal.eating()
+    animal.playing()
+    
+    // this, its not going to return anything
+    Animal().apply { 
+        this.age
+        this.eating()
+        playing()
+    }
+--------------------------------
+
+class Animal(){
+    var age = 33
+    var name = "abc"
+
+    fun playing(){
+        println("animal playing")
+    }
+    fun eating(){
+        println("animal eating")
+    }
+}
+fun main(){
+
+    var animal = Animal()
+
+    // this, its going to return a value
+    var res = with(animal){
+        this.playing()
+        eating()
+        var newage = this.age + 10
+        newage
+    }
+
+    println("new age is $res")
+
+
+}
+
+---------------------------------------------
+
+class Animal(){
+    var age = 33
+    var name = "abc"
+
+    fun playing(){
+        println("animal playing")
+    }
+    fun eating(){
+        println("animal eating")
+    }
+}
+fun main(){
+
+    var animal : Animal? = null
+
+// this, its returning a value and it wil execute the block if its not null
+   var res = animal?.run {
+        println(this.age)
+       this.eating()
+       var newage = age + 10
+       newage
+    }
+
+    println("age is $res")
+
+
+}
+
+---------------------------------------------
+class Animal(){
+    var age = 33
+    var name = "abc"
+
+    fun playing(){
+        println("animal playing")
+    }
+    fun eating(){
+        println("animal eating")
+    }
+}
+fun main(){
+
+    var animal : Animal? = null
+
+    var mylist : MutableList<Int> = mutableListOf(4,5,3,5)
+
+    mylist.add(100)
+    println(mylist)
+
+    mylist.removeAt(0)
+    println(mylist)
+
+    var mylist2 : MutableList<Int> = mutableListOf(42,52,3,5)
+
+    // it
+    mylist2.also {
+        it.add(33)
+        println(" $it")
+    }
+
+}
+
+----------------------
+
+companion object{
+        var city = "BANGLAORE"
+        fun sleeping(){
+            println("animal sleeping")
+        }
+
+---------------------
+

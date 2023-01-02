@@ -1,0 +1,7 @@
+jetpack
+building and integrating libs
+----------testing --------- junit n mockitozz
+google fuse apis
+
+Django
+custom views
